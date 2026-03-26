@@ -1,5 +1,3 @@
-// fixtures/test-fixtures.ts
-
 // Step A: Import the base test and your Page Objects
 import { test as base } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';

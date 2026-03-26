@@ -1,16 +1,19 @@
-import { test, expect } from '@playwright/test';
-import { HomePage } from '../pages/HomePage';
+///--------------NAVIGATION TESTS WITH FIXTURES-----------------/////
 
+//import { test, expect } from '@playwright/test';
+//import { HomePage } from '../pages/HomePage';
+import { test, expect } from '../fixtures/test-fixtures';
 
 test.describe('Navigation Tests', () => {
     
-    let homePage: HomePage;
+    /* let homePage: HomePage;
 
     test.beforeEach(async ({ page }) => {
             homePage = new HomePage(page);
             await homePage.goto();
-        });
-    ///after checking Angels solution from week 6 I decided to also use an object for the navigation categories
+        }); */
+
+    ///after checking Angels solution from week 6, I decided to also use an object for the navigation categories
     const categories = [
         {
             nav_name:'Home', 
@@ -50,7 +53,7 @@ test.describe('Navigation Tests', () => {
             
     // Loop through the categories and perform the test actions.
     for (const category of categories) {
-        test(`Navigates to "${category.nav_name}"`, async ({page}) => {
+        test(`Navigates to "${category.nav_name}"`, async ({page, homePage}) => {
             await homePage.goto();
             await homePage.clickNavLink(category.nav_name);
             await expect(page).toHaveURL(category.url);
@@ -59,7 +62,7 @@ test.describe('Navigation Tests', () => {
         
     }
 
-    test.afterEach(async ({ page }, testInfo) => {
+    test.afterEach(async ({}, testInfo) => {
         console.log(testInfo.title)
     });
 

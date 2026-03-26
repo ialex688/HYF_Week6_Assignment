@@ -1,3 +1,5 @@
+///--------------PRODUCT DETAILS TESTS-----------------/////
+
 import { test, expect } from '@playwright/test';
 import { ProductsPage } from '../pages/ProductsPage';
 
@@ -52,7 +54,7 @@ test.describe('Products Tests', () => {
         });
     } 
 
-    test.afterEach(async ({ page }, testInfo) => {
+    test.afterEach(async ({}, testInfo) => {
         console.log(testInfo.title)
     });
     

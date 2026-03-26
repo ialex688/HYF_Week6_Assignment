@@ -6,8 +6,8 @@ test('valid login', async ({page}) => {
     await page.getByLabel("Login name").fill("aguspe");
     await page.getByLabel("Password").fill("12341234");
     await page.getByRole('button', { name: 'Login' }).click();
-    await expect(page).toHaveURL(/account/);
-    await expect(page.locator("body > main > div > div.account-welcome > p")).toHaveText("Welcome to your account dashboard. From here you can manage your orders and account details.");
+    await expect(page).toHaveURL('/index.php?rt=account/account');
+    await expect(page.getByText("Welcome to your account dashboard. From here you can manage your orders and account details.")).toBeVisible();
 })
 
 

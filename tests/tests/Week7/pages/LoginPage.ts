@@ -8,11 +8,15 @@ export class LoginPage {
     readonly loginOrRegister: Locator;
     readonly validLoginMessage: Locator;
     readonly invalidLoginMessage: Locator;
+    
 
     constructor(page: Page) {
         this.page = page;
-        this.usernameInput = page.locator('#loginFrm_loginname');
-        this.passwordInput = page.locator('#loginFrm_password');
+        //this.usernameInput = page.locator('#loginFrm_loginname');
+        this.usernameInput = page.getByLabel("Login name");
+
+        //this.passwordInput = page.locator('#loginFrm_password');
+        this.passwordInput = page.getByLabel("Password");
         this.loginButton = page.getByRole('button', { name: 'Login' });
         this.loginOrRegister = page.getByRole("link", { name: 'Login or register' });
         this.validLoginMessage = page.getByText("Welcome to your account dashboard. From here you can manage your orders and account details.");

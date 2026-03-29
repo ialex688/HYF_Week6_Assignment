@@ -25,6 +25,19 @@ test.describe('Login Tests', () => {
         await expect(loginPage.invalidLoginMessage).toBeVisible();        
     })
 
+    test('empty username', async ({page, loginPage}) => {
+        await loginPage.login('', '12341234');
+        await expect(loginPage.usernameInput).toHaveAttribute('required', '');
+    })
+    
+    
+    
+    test('empty password', async ({page, loginPage}) => {
+        await loginPage.login('aguspe', '');        
+        await expect(loginPage.passwordInput).toHaveAttribute('required', '');
+       
+    })
+
 
     test.afterEach(async ({}, testInfo) => {
         console.log(testInfo.title)
